@@ -24,3 +24,5 @@ const SelectedPokemon = ()=> {
     )}
   </div>);
 }
+
+export default SelectedPokemon;
