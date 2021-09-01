@@ -1,5 +1,11 @@
 import { useState} from 'react';
 
+const useLocalStorage = (initialValue) => {
+    const [value, setValue] = useState(initialValue);
+
+    return([value, setValue]);
+}
+
 //1. make a useForm hook function.
 //2. add into that function all stateful logic
 //3. return all values needed in our SignupForm Component.
