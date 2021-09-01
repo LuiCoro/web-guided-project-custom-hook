@@ -9,18 +9,18 @@ import Button from "../theme/Button";
 //3. return all values needed in our SignupForm Component.
 //4. implment our hook inside of the signupForm
 const useForm = (initialValue) => {
-  const [firstName, setFirstName] = useState(initialValue);
+  const [value, setValue] = useState(initialValue);
 
   const handleChanges = e => {
-    setFirstName(e.target.value);
+    setValue(e.target.value);
   };
 
   const clearForm = e => {
     e.preventDefault();
-    setFirstName("");
+    setValue("");
   };
 
-  return([firstName, handleChanges, clearForm]);
+  return([value, handleChanges, clearForm]);
 }
 
 
