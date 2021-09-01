@@ -6,6 +6,8 @@ const useLocalStorage = (key, initialValue) => {
     //2. When initializing state, check to see if a value exists in localStorage.
     //3. If a saved value does exist, put it into state.
     //4. If a saved value does not exist, put initialValue into localStorage.
+    //5. if we change our state, put that changed value into localStorage.
+
     
     return([value, setValue]);
 }
