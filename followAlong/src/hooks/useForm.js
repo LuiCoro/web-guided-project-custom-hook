@@ -4,9 +4,12 @@ const useLocalStorage = (key, initialValue) => {
     const [value, setValue] = useState(() => {
         if (localStorage.getItem(key)) {
             return (JSON.parse(localStorage.getItem(key)));
+        } else {
+            localStorage.setItem(key, JSON.stringify(initialValue));
+            return(initialValue);
         }
-        return(initialValue);
     });
+
     //1. Setup State
     //2. When initializing state, check to see if a value exists in localStorage.
     //3. If a saved value does exist, put it into state.
@@ -22,7 +25,7 @@ const useLocalStorage = (key, initialValue) => {
 //3. return all values needed in our SignupForm Component.
 //4. implment our hook inside of the signupForm
 const useForm = (initialValues) => {
-    const [values, setValues] = useState(initialValues);
+    const [values, setValues] = useLocalStorage('form', initialValues);
   
     const handleChanges = e => {
       setValues({
