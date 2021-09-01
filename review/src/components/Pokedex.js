@@ -3,6 +3,7 @@ import React from 'react';
 const Pokedex = (props)=> {
     const { pokemen, handlePoke } = props;
 
+
     return (<div id="pokeList">
     {pokemen.map((pokemon) => (
       <div
@@ -12,7 +13,7 @@ const Pokedex = (props)=> {
       >
         <img src={pokemon.img} alt={pokemon.name} />
         <div>
-          
+          <p>{pokemon.candy}</p>
           <h3>{pokemon.name}</h3>
           {pokemon.next_evolution &&
             pokemon.next_evolution.map((e) => <p key={e.num}>{e.name}</p>)}
