@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Pokedex = ()=> {
+const Pokedex = (props)=> {
+    const { pokemen } = props;
+    
     return (<div id="pokeList">
     {pokemen.map((pokemon) => (
       <div
