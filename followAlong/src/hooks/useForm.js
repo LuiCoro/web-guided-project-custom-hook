@@ -17,7 +17,7 @@ const useLocalStorage = (key, initialValue) => {
     //5. if we change our state, put that changed value into localStorage.
 
     const setStoredValue = (value)=> {
-        localStorage.setItem(key, value);
+        localStorage.setItem(key, JSON.stringify(value));
         setValue(value);
     }
 
