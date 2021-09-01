@@ -6,7 +6,7 @@ import Button from "../theme/Button";
 import useForm from "./../hooks/useForm";
 
 const initState = {
-  firstName: localStorage.getItem("name"),
+  firstName: "",
   lastName: ""
 }
 
