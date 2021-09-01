@@ -25,7 +25,7 @@ function App() {
     <div className="App">
 
       <SelectedPokemon selectedPokemon={selectedPokemon}/>
-      <Pokedex pokemen={pokemen}/>
+      <Pokedex pokemen={pokemen} handlePoke={handlePoke}/>
     </div>
   );
 }
