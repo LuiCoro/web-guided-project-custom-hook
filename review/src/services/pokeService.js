@@ -1,11 +1,11 @@
 import axios from 'axios';
 import data from './../../data';
 
-const getAllPokemon = ()=> {
+export const getAllPokemon = ()=> {
     return (data);
 }
   
-const getPokemon = id => {
+export const getPokemon = id => {
     return axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
         .then(resp => {
             return(resp.data);
