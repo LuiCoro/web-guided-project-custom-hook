@@ -26,7 +26,7 @@ const usePokeState = () => {
       });
   };
 
-  return [selectedPokemon, pokemen]
+  return [selectedPokemon, pokemen, handlePoke];
 }
 
 
