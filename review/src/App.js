@@ -10,8 +10,12 @@ const getAllPokemon = ()=> {
   return (data);
 }
 
-const getPokemon = () => {
-
+const getPokemon = id => {
+  return axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+    .then(resp => {
+      console.log(resp);
+      return(resp.data);
+    })
 }
 
 
@@ -24,8 +28,6 @@ function App() {
   }, []);
 
   const handlePoke = (id) => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-
     getPokemon(id)
       .then((pokemon) => {
         setSelectedPokemon(pokemon);
