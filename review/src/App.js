@@ -30,7 +30,10 @@ function App() {
     getPokemon(id)
       .then((pokemon) => {
         setSelectedPokemon(pokemon);
-      });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   };
 
   return (
