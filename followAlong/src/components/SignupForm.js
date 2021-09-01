@@ -12,7 +12,10 @@ const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues);
 
   const handleChanges = e => {
-    setValues(e.target.value);
+    setValues({
+      ...values,
+      firstName: e.target.value
+    });
   };
 
   const clearForm = e => {
