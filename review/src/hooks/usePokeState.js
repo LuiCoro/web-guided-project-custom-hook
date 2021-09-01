@@ -7,7 +7,7 @@ const usePokeState = () => {
     useEffect(() => {
       setPokemen(getAllPokemon());
     }, []);
-  
+    
     const handlePoke = (id) => {
       getPokemon(id)
         .then((pokemon) => {
