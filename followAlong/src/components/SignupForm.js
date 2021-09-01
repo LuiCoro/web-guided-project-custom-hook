@@ -4,39 +4,32 @@ import TextField from "@material-ui/core/TextField";
 
 import Button from "../theme/Button";
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
-  },
-  dense: {
-    marginTop: theme.spacing(2)
-  },
-  menu: {
-    width: 200
-  }
-}));
-
-export default function SignupForm() {
-  const classes = useStyles();
+//1. make a useForm hook function.
+//2. add into that function all stateful logic
+//3. return all values needed in our SignupForm Component.
+//4. implment our hook inside of the signupForm
+const useForm = () => {
   const [firstName, setFirstName] = useState("");
 
   const handleChanges = e => {
     setFirstName(e.target.value);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    alert(firstName);
-  };
-
   const clearForm = e => {
     e.preventDefault();
     setFirstName("");
+  };
+
+  return(firstName, handleChanges, clearName);
+}
+
+
+export default function SignupForm() {
+  const classes = useStyles();
+  
+  const handleSubmit = e => {
+    e.preventDefault();
+    alert(firstName);
   };
 
   return (
@@ -67,3 +60,20 @@ export default function SignupForm() {
     </div>
   );
 }
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1)
+  },
+  dense: {
+    marginTop: theme.spacing(2)
+  },
+  menu: {
+    width: 200
+  }
+}));
