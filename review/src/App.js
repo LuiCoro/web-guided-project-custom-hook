@@ -9,11 +9,6 @@ import { getAllPokemon, getPokemon } from './services/pokeService';
 
 
 const usePokeState = () => {
-  
-}
-
-
-function App() {
   const [pokemen, setPokemen] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState({});
 
@@ -30,7 +25,10 @@ function App() {
         console.log(err);
       });
   };
+}
 
+
+function App() {
   return (
     <div className="App">
       <SelectedPokemon selectedPokemon={selectedPokemon}/>
