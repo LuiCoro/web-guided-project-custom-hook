@@ -21,7 +21,7 @@ const useLocalStorage = (key, initialValue) => {
         setValue(value);
     }
 
-    return([value, setValue]);
+    return([value, setStoredValue]);
 }
 
 //1. make a useForm hook function.
