@@ -8,8 +8,8 @@ import Pokedex from './components/Pokedex';
 import { getAllPokemon, getPokemon } from './services/pokeService';
 
 
-const usePokeState => {
-  
+const usePokeState () => {
+
 }
 
 
