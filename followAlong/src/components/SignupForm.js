@@ -20,13 +20,14 @@ const useForm = () => {
     setFirstName("");
   };
 
-  return(firstName, handleChanges, clearName);
+  return([firstName, handleChanges, clearForm]);
 }
 
 
 export default function SignupForm() {
   const classes = useStyles();
-  
+  const [firstName, handleChanges, clearForm] = useForm();
+
   const handleSubmit = e => {
     e.preventDefault();
     alert(firstName);
