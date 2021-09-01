@@ -1,8 +1,12 @@
 import { useState} from 'react';
 
-const useLocalStorage = (initialValue) => {
+const useLocalStorage = (key, initialValue) => {
     const [value, setValue] = useState(initialValue);
-
+    //1. Setup State
+    //2. When initializing state, check to see if a value exists in localStorage.
+    //3. If a saved value does exist, put it into state.
+    //4. If a saved value does not exist, put initialValue into localStorage.
+    
     return([value, setValue]);
 }
 
