@@ -5,7 +5,7 @@ import data from "../data";
 
 import SelectedPokemon from './components/SelectedPokemon';
 import Pokedex from './components/Pokedex';
-import usePokeState from './services/pokeService';
+import usePokeState from './hooks/usePokeState';
 
 import { getAllPokemon, getPokemon } from './services/pokeService';
 
