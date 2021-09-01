@@ -8,8 +8,8 @@ import Button from "../theme/Button";
 //2. add into that function all stateful logic
 //3. return all values needed in our SignupForm Component.
 //4. implment our hook inside of the signupForm
-const useForm = () => {
-  const [firstName, setFirstName] = useState("");
+const useForm = (initialValue) => {
+  const [firstName, setFirstName] = useState(initialValue);
 
   const handleChanges = e => {
     setFirstName(e.target.value);
@@ -26,7 +26,7 @@ const useForm = () => {
 
 export default function SignupForm() {
   const classes = useStyles();
-  const [firstName, handleChanges, clearForm] = useForm();
+  const [firstName, handleChanges, clearForm] = useForm("");
 
   const handleSubmit = e => {
     e.preventDefault();
