@@ -25,6 +25,8 @@ const usePokeState = () => {
         console.log(err);
       });
   };
+
+  return [selectedPokemon, pokemen]
 }
 
 
