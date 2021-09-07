@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PokeList = ({pokemen}) => {
+const PokeList = ({pokemen, handlePoke}) => {
   return (
     <div id="pokeList">
       {/* We (map) out our data to single pokemon*/}
