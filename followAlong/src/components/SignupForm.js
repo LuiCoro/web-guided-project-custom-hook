@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, {useState} from "react";
+import {makeStyles} from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
 import Button from "../theme/Button";
@@ -21,24 +21,51 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignupForm() {
-  const classes = useStyles();
-  const [firstName, setFirstName] = useState("");
-
+// The (initalState) beign passed in here is the one we add ourselves in the App.js File
+//Check the state to understand this a bit more
+// ( initialState ) ==> ( 'Edit Me!' )
+// Before we madew this be my itself we simply added everything that had to do with modifying state when a user adds input!
+const useForm = (initialValues) => {
+  const [values, setValue] = useState(initialValues);
+  
   const handleChanges = e => {
-    setFirstName(e.target.value);
+    setValue(e.target.value);
   };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    alert(firstName);
-  };
-
+  
   const clearForm = e => {
     e.preventDefault();
-    setFirstName("");
+    //Here we are setting the value to equal our inital state
+    setValue(initialValues);
   };
+  
+  // ALWAYS make sure to RETURN our State, HandleChanges, and our ClearChanges or basically anything to do with modifying state
+  return ([values, clearForm, handleChanges])
+}
 
+
+// Here we are setting our Initial state!
+const initialValue = {
+  firstName: '',
+  lastName: ''
+}
+
+
+
+export default function SignupForm() {
+  //Styles are able to stay inside the App.js file
+  const classes = useStyles();
+  
+  //If your wonder our intial State thats being passed in as a props is basically equal to what ever is inside the ( () )
+  //Fell free to add a name here and itll be chagned into the inital State!
+  // These are the same ones we are returning from our useForm.js
+  const [value, clearForm, handleChanges] = useForm(initialValue)
+  
+  //HandleSubmit functions can stay here since they dont do much to the state
+  const handleSubmit = e => {
+    e.preventDefault();
+    alert(value);
+  };
+  
   return (
     <div p={2} className="form">
       <form onSubmit={handleSubmit}>
@@ -49,7 +76,7 @@ export default function SignupForm() {
             label="First Name"
             className={classes.textField}
             name="firstName"
-            value={firstName}
+            value={value}
             onChange={handleChanges}
             margin="normal"
             variant="outlined"
