@@ -35,7 +35,7 @@ const useForm = (initialValues) => {
   const clearForm = e => {
     e.preventDefault();
     //Here we are setting the value to equal our inital state
-    setValue(initialValues);
+    setValue(clearedInput);
   };
   
   // ALWAYS make sure to RETURN our State, HandleChanges, and our ClearChanges or basically anything to do with modifying state
@@ -45,10 +45,15 @@ const useForm = (initialValues) => {
 
 // Here we are setting our Initial state!
 const initialValue = {
-  firstName: '',
-  lastName: ''
+  firstName: 'Omi',
+  lastName: 'Space',
 }
 
+//Here we are setting state to equal something else when inputs are cleared
+const clearedInput = {
+  firstName: 'Cleared!',
+  lastName: 'Cleared!',
+}
 
 
 export default function SignupForm() {
@@ -58,12 +63,13 @@ export default function SignupForm() {
   //If your wonder our intial State thats being passed in as a props is basically equal to what ever is inside the ( () )
   //Fell free to add a name here and itll be chagned into the inital State!
   // These are the same ones we are returning from our useForm.js
-  const [value, clearForm, handleChanges] = useForm(initialValue)
+  const [values, clearForm, handleChanges] = useForm(initialValue)
   
   //HandleSubmit functions can stay here since they dont do much to the state
   const handleSubmit = e => {
+    //The reason to why its (values.firstName) is because thats where our {firstName} state lives at
     e.preventDefault();
-    alert(value);
+    alert(values.firstName);
   };
   
   return (
@@ -76,11 +82,22 @@ export default function SignupForm() {
             label="First Name"
             className={classes.textField}
             name="firstName"
-            value={value}
+            value={values.firstName}
             onChange={handleChanges}
             margin="normal"
             variant="outlined"
           />
+          <TextField
+            id="outlined-name"
+            label="Last Name"
+            className={classes.textField}
+            name="LastName"
+            value={values.lastName}
+            onChange={handleChanges}
+            margin="normal"
+            variant="outlined"
+          />
+          
           <div className="flexer">
             <Button color="red" onClick={clearForm}>
               Clear
