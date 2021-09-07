@@ -4,8 +4,10 @@
 // Before we madew this be my itself we simply added everything that had to do with modifying state when a user adds input!
 import {useState} from "react";
 
+import useLocalStorage from "./useLocalStorage";
+
 const useForm = (initialValues) => {
-  const [values, setValue] = useState(initialValues);
+  const [values, setValue] = useLocalStorage('form', initialValues);
   
   //
   const handleChanges = e => {
@@ -36,4 +38,4 @@ const useForm = (initialValues) => {
 }
 
 
-export default  useForm
+export default useForm

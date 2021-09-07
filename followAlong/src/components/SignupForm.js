@@ -7,8 +7,6 @@ import Button from "../theme/Button";
 //Hooks Import
 import useForm from '../Hooks/useForm'
 
-
-
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
@@ -39,6 +37,10 @@ export default function SignupForm() {
   //Styles are able to stay inside the App.js file
   const classes = useStyles();
   
+  //Testing our localStorage hook
+  //Setting the hook with the ket of name & value of omi
+  // const [name , setName] = useLocalStorage('name', 'omi')
+  
   //If your wonder our intial State thats being passed in as a props is basically equal to what ever is inside the ( () )
   //Fell free to add a name here and itll be chagned into the inital State!
   // These are the same ones we are returning from our useForm.js
@@ -54,6 +56,15 @@ export default function SignupForm() {
   
   return (
     <div p={2} className="form">
+      
+      {/*This is our testing component to see if localstorage saves!*/}
+      {/*<p>{name}</p>*/}
+      {/*<button onClick={() => {*/}
+      {/*  setName('Corona')*/}
+      {/*}}>Click Me</button>*/}
+      
+      {/*<hr />*/}
+      
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Add New Client</legend>
