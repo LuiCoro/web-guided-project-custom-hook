@@ -4,6 +4,11 @@ import TextField from "@material-ui/core/TextField";
 
 import Button from "../theme/Button";
 
+//Hooks Import
+import useForm from '../Hooks/useForm'
+
+
+
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
@@ -21,38 +26,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// The (initalState) beign passed in here is the one we add ourselves in the App.js File
-//Check the state to understand this a bit more
-// ( initialState ) ==> ( 'Edit Me!' )
-// Before we madew this be my itself we simply added everything that had to do with modifying state when a user adds input!
-const useForm = (initialValues) => {
-  const [values, setValue] = useState(initialValues);
-  
-  const handleChanges = e => {
-    setValue(e.target.value);
-  };
-  
-  const clearForm = e => {
-    e.preventDefault();
-    //Here we are setting the value to equal our inital state
-    setValue(clearedInput);
-  };
-  
-  // ALWAYS make sure to RETURN our State, HandleChanges, and our ClearChanges or basically anything to do with modifying state
-  return ([values, clearForm, handleChanges])
-}
-
 
 // Here we are setting our Initial state!
 const initialValue = {
-  firstName: 'Omi',
-  lastName: 'Space',
-}
-
-//Here we are setting state to equal something else when inputs are cleared
-const clearedInput = {
-  firstName: 'Cleared!',
-  lastName: 'Cleared!',
+  firstName: '',
+  lastName: '',
+  email: ''
 }
 
 
@@ -69,7 +48,8 @@ export default function SignupForm() {
   const handleSubmit = e => {
     //The reason to why its (values.firstName) is because thats where our {firstName} state lives at
     e.preventDefault();
-    alert(values.firstName);
+    //we use ( ` ` ) to make sure the values of both first & last name show up!
+    alert(`${values.firstName} ${values.lastName} ${values.email}`);
   };
   
   return (
@@ -91,8 +71,18 @@ export default function SignupForm() {
             id="outlined-name"
             label="Last Name"
             className={classes.textField}
-            name="LastName"
+            name="lastName"
             value={values.lastName}
+            onChange={handleChanges}
+            margin="normal"
+            variant="outlined"
+          />
+          <TextField
+            id="outlined-name"
+            label="Email"
+            className={classes.textField}
+            name="email"
+            value={values.email}
             onChange={handleChanges}
             margin="normal"
             variant="outlined"
